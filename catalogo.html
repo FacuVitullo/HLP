@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Productos | Hierbas Medicinales La Paz</title>
+    <meta name="description" content="Catálogo mayorista de tisanas preparadas y hierbas sueltas: más de 170 variedades para dietéticas y comercios naturales de toda Argentina.">
+    <meta property="og:title" content="Catálogo de Productos | Hierbas Medicinales La Paz">
+    <meta property="og:description" content="Catálogo mayorista de tisanas preparadas y hierbas sueltas: más de 170 variedades para dietéticas y comercios naturales de toda Argentina.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://hierbasmedicinaleslapaz.netlify.app/catalogo">
+    <meta property="og:image" content="https://hierbasmedicinaleslapaz.netlify.app/images/hero-peperina.jpg">
+    <meta property="og:site_name" content="Hierbas Medicinales La Paz">
+    <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catálogo de Productos | Hierbas Medicinales La Paz">
+    <meta name="twitter:description" content="Catálogo mayorista de tisanas preparadas y hierbas sueltas: más de 170 variedades para dietéticas y comercios naturales de toda Argentina.">
+    <meta name="twitter:image" content="https://hierbasmedicinaleslapaz.netlify.app/images/hero-peperina.jpg">
+    <link rel="canonical" href="https://hierbasmedicinaleslapaz.netlify.app/catalogo">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,27 +53,26 @@
         @media (prefers-reduced-motion: reduce) {
             * { transition: none !important; animation: none !important; }
         }
-
-        .specimen-card {
-            background: #FBFAF5;
+        .ledger-row {
+            border-top: 1px solid #DCD3BC;
+        }
+        .ledger-row:last-child {
+            border-bottom: 1px solid #DCD3BC;
+        }
+    
+        .cat-chip {
             border: 1px solid #DCD3BC;
+            background: rgba(255,255,255,0.5);
+            color: rgba(36,38,31,0.7);
         }
-        .specimen-frame {
-            position: relative;
+        .cat-chip:hover {
+            background: #fff;
+            color: #1F3A29;
         }
-        .specimen-frame::before {
-            content: "";
-            position: absolute;
-            inset: 10px;
-            border: 1px dashed #C9BE9E;
-            pointer-events: none;
-        }
-
-        .price-row {
-            border-top: 1px solid #E4DCC6;
-        }
-        .price-figure {
-            font-variant-numeric: tabular-nums;
+        .cat-chip[aria-pressed="true"] {
+            background: #1F3A29;
+            border-color: #1F3A29;
+            color: #F3F0E6;
         }
     </style>
 </head>
@@ -87,21 +100,21 @@
         </div>
     </header>
 
-    <!-- CONTENT -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-12 pb-8 border-b border-line">
+        <div class="flex flex-col gap-4 mb-12 pb-8 border-b border-line">
             <div>
                 <h1 class="font-serif text-4xl font-medium text-pine">Catálogo mayorista</h1>
-                <p class="text-ink/60 mt-2 max-w-lg">Hierbas secas en fraccionado comercial o a granel para negocios. Precios de referencia por presentación.</p>
+                <p class="text-ink/60 mt-2 max-w-lg">Hierbas secas en fraccionado comercial o a granel para negocios. Cada producto tiene su propia ficha con el detalle completo de uso.</p>
             </div>
-            <a href="#" onclick="alert('Descargando catálogo en PDF...'); return false;" class="border border-pine text-pine hover:bg-pine hover:text-paper font-semibold px-5 py-2.5 text-sm transition-colors whitespace-nowrap">
-                Descargar catálogo PDF
-            </a>
         </div>
 
-        <!-- SEARCH -->
+        <nav class="flex flex-wrap gap-3 mb-8 text-sm">
+            <a href="#tisanas" class="px-4 py-2 border border-line bg-white/50 hover:bg-white text-ink/70 hover:text-pine transition-colors">Tisanas preparadas (33)</a>
+            <a href="#hierbas-sueltas" class="px-4 py-2 border border-line bg-white/50 hover:bg-white text-ink/70 hover:text-pine transition-colors">Hierbas sueltas (146)</a>
+        </nav>
+
         <div class="mb-8">
-            <label for="product-search" class="block text-xs font-semibold uppercase tracking-wide text-ink/40 mb-2">Buscar por hierba o uso</label>
+            <label for="product-search" class="block text-xs font-semibold uppercase tracking-wide text-ink/40 mb-2">Buscar en todo el catálogo por hierba o uso</label>
             <input
                 type="text"
                 id="product-search"
@@ -112,154 +125,795 @@
             <p id="no-results-msg" class="hidden text-sm text-ink/50 mt-4">No encontramos hierbas que coincidan con esa búsqueda.</p>
         </div>
 
-        <!-- PRODUCTS GRID -->
-        <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <!-- Product 1: Peperina -->
-            <div class="specimen-card flex flex-col" data-name="Peperina Serrana Minthostachys mollis" data-uses="digestivo dolor de estomago flatulencia mate infusion aromatizante">
-                <div class="relative aspect-[4/3] overflow-hidden border-b border-line">
-                    <img src="images/productos/peperina.jpg" alt="Peperina Serrana"
-                         class="absolute inset-0 w-full h-full object-cover"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden absolute inset-0 items-center justify-center bg-sage/15 text-ink/40 text-xs text-center px-6 leading-relaxed">
-                        Agregá foto en<br><code class="text-ink/60">images/productos/peperina.jpg</code>
-                    </div>
-                </div>
-                <div class="specimen-frame px-7 py-7 flex flex-col flex-grow">
-                <p class="text-xs uppercase tracking-wide text-ink/50">Digestiva · Autóctona</p>
-                <h3 class="font-serif text-2xl mt-2">Peperina Serrana</h3>
-                <p class="font-serif italic text-ink/50 text-sm mt-0.5">Minthostachys mollis</p>
-                <p class="text-ink/70 text-sm mt-4 leading-relaxed">Peperina pura de Traslasierra. Sabor mentolado intenso, ideal para infusiones y aromatizar mate.</p>
-                <p class="text-xs text-ink/45 mt-3"><span class="text-ink/60 font-medium">Uso tradicional:</span> digestivo, mate, infusiones</p>
-
-                <div class="mt-6 space-y-0">
-                    <div class="price-row flex items-center justify-between py-2 text-sm">
-                        <span class="text-ink/60">Unidad</span>
-                        <span class="price-figure font-medium">$800</span>
-                    </div>
-                    <div class="price-row flex items-center justify-between py-2 text-sm">
-                        <span class="text-ink/60">Pack x 6 unidades</span>
-                        <span class="price-figure font-medium">$4.200</span>
-                    </div>
-                    <div class="price-row flex items-center justify-between py-2 text-sm border-b border-[#E4DCC6]">
-                        <span class="text-ink/60">Por kilo</span>
-                        <span class="price-figure font-medium">$12.000</span>
-                    </div>
-                </div>
-
-                <a href="orders.html" class="mt-6 block text-center bg-ochre hover:bg-ochre-dark text-white font-semibold py-2.5 text-sm transition-colors">
-                    Cotizar en Órdenes
-                </a>
-                </div>
-            </div>
-
-            <!-- Product 2: Manzanilla -->
-            <div class="specimen-card flex flex-col" data-name="Manzanilla Flor Pura Matricaria chamomilla" data-uses="relajante calmante ansiedad insomnio digestivo dolor de estomago">
-                <div class="relative aspect-[4/3] overflow-hidden border-b border-line">
-                    <img src="images/productos/manzanilla.jpg" alt="Manzanilla Flor Pura"
-                         class="absolute inset-0 w-full h-full object-cover"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden absolute inset-0 items-center justify-center bg-sage/15 text-ink/40 text-xs text-center px-6 leading-relaxed">
-                        Agregá foto en<br><code class="text-ink/60">images/productos/manzanilla.jpg</code>
-                    </div>
-                </div>
-                <div class="specimen-frame px-7 py-7 flex flex-col flex-grow">
-                <p class="text-xs uppercase tracking-wide text-ink/50">Relajante</p>
-                <h3 class="font-serif text-2xl mt-2">Manzanilla Flor Pura</h3>
-                <p class="font-serif italic text-ink/50 text-sm mt-0.5">Matricaria chamomilla</p>
-                <p class="text-ink/70 text-sm mt-4 leading-relaxed">Flores seleccionadas sin tallo. Propiedades calmantes y digestivas con excelente aroma floral.</p>
-                <p class="text-xs text-ink/45 mt-3"><span class="text-ink/60 font-medium">Uso tradicional:</span> relajante, digestivo, insomnio</p>
-
-                <div class="mt-6 space-y-0">
-                    <div class="price-row flex items-center justify-between py-2 text-sm">
-                        <span class="text-ink/60">Unidad</span>
-                        <span class="price-figure font-medium">$750</span>
-                    </div>
-                    <div class="price-row flex items-center justify-between py-2 text-sm">
-                        <span class="text-ink/60">Pack x 6 unidades</span>
-                        <span class="price-figure font-medium">$3.900</span>
-                    </div>
-                    <div class="price-row flex items-center justify-between py-2 text-sm border-b border-[#E4DCC6]">
-                        <span class="text-ink/60">Por kilo</span>
-                        <span class="price-figure font-medium">$10.500</span>
-                    </div>
-                </div>
-
-                <a href="orders.html" class="mt-6 block text-center bg-ochre hover:bg-ochre-dark text-white font-semibold py-2.5 text-sm transition-colors">
-                    Cotizar en Órdenes
-                </a>
-                </div>
-            </div>
-
-            <!-- Product 3: Cedrón -->
-            <div class="specimen-card flex flex-col" data-name="Cedrón Hierba Luisa Aloysia citrodora" data-uses="relajante te aromatico nervios digestivo dolor de cabeza">
-                <div class="relative aspect-[4/3] overflow-hidden border-b border-line">
-                    <img src="images/productos/cedron.jpg" alt="Cedrón (Hierba Luisa)"
-                         class="absolute inset-0 w-full h-full object-cover"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden absolute inset-0 items-center justify-center bg-sage/15 text-ink/40 text-xs text-center px-6 leading-relaxed">
-                        Agregá foto en<br><code class="text-ink/60">images/productos/cedron.jpg</code>
-                    </div>
-                </div>
-                <div class="specimen-frame px-7 py-7 flex flex-col flex-grow">
-                <p class="text-xs uppercase tracking-wide text-ink/50">Aromática</p>
-                <h3 class="font-serif text-2xl mt-2">Cedrón (Hierba Luisa)</h3>
-                <p class="font-serif italic text-ink/50 text-sm mt-0.5">Aloysia citrodora</p>
-                <p class="text-ink/70 text-sm mt-4 leading-relaxed">Hojas secas de cedrón cítrico. Ideal para té relajante o blends de té artesanal.</p>
-                <p class="text-xs text-ink/45 mt-3"><span class="text-ink/60 font-medium">Uso tradicional:</span> relajante, digestivo, té aromático</p>
-
-                <div class="mt-6 space-y-0">
-                    <div class="price-row flex items-center justify-between py-2 text-sm">
-                        <span class="text-ink/60">Unidad</span>
-                        <span class="price-figure font-medium">$850</span>
-                    </div>
-                    <div class="price-row flex items-center justify-between py-2 text-sm">
-                        <span class="text-ink/60">Pack x 6 unidades</span>
-                        <span class="price-figure font-medium">$4.500</span>
-                    </div>
-                    <div class="price-row flex items-center justify-between py-2 text-sm border-b border-[#E4DCC6]">
-                        <span class="text-ink/60">Por kilo</span>
-                        <span class="price-figure font-medium">$12.500</span>
-                    </div>
-                </div>
-
-                <a href="orders.html" class="mt-6 block text-center bg-ochre hover:bg-ochre-dark text-white font-semibold py-2.5 text-sm transition-colors">
-                    Cotizar en Órdenes
-                </a>
-                </div>
-            </div>
-
-            <!-- Product 4: Menta Peperina Blend -->
-            <div class="specimen-card flex flex-col" data-name="Menta Peperina Blend Mentha piperita" data-uses="digestivo mentolado gourmet mate infusion">
-                <div class="relative aspect-[4/3] overflow-hidden border-b border-line">
-                    <img src="images/productos/menta-peperina.jpg" alt="Menta Peperina Blend"
-                         class="absolute inset-0 w-full h-full object-cover"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden absolute inset-0 items-center justify-center bg-sage/15 text-ink/40 text-xs text-center px-6 leading-relaxed">
-                        Agregá foto en<br><code class="text-ink/60">images/productos/menta-peperina.jpg</code>
-                    </div>
-                </div>
-                <div class="specimen-frame px-7 py-7 flex flex-col flex-grow">
-                <p class="text-xs uppercase tracking-wide text-ink/50">Especialidad</p>
-                <h3 class="font-serif text-2xl mt-2">Menta Peperina Blend</h3>
-                <p class="font-serif italic text-ink/50 text-sm mt-0.5">Mentha piperita &amp; Minthostachys mollis</p>
-                <p class="text-ink/70 text-sm mt-4 leading-relaxed">Combinación exclusiva de menta piperita y peperina cordobesa para negocios gourmet y dietéticas.</p>
-                <p class="text-xs text-ink/45 mt-3"><span class="text-ink/60 font-medium">Uso tradicional:</span> digestivo, mate, infusiones</p>
-
-                <div class="mt-6 space-y-0">
-                    <div class="price-row flex items-center justify-between py-2 text-sm border-b border-[#E4DCC6]">
-                        <span class="text-ink/60">Caja de reventa x 20 u.</span>
-                        <span class="price-figure font-medium text-ink/40">Consultar precio</span>
-                    </div>
-                </div>
-
-                <a href="orders.html" class="mt-6 block text-center bg-ochre hover:bg-ochre-dark text-white font-semibold py-2.5 text-sm transition-colors">
-                    Cotizar en Órdenes
-                </a>
-                </div>
-            </div>
-
+        <div class="border-l-4 border-sage bg-white/40 pl-6 py-4 pr-6 mb-8 text-sm text-ink/70 leading-relaxed">
+            Los usos que se describen en este catálogo son de carácter tradicional y orientativo, según la información de nuestros proveedores. No reemplazan el consejo médico: ante cualquier duda o tratamiento, consulte a un profesional de la salud.
         </div>
+
+
+        <div class="flex items-center justify-between gap-4 bg-pine text-paper px-6 py-4 mb-14 flex-wrap">
+            <p class="text-sm">¿Ya sabe qué hierbas necesita? Selecciónelas y arme su pedido.</p>
+            <a href="orders.html" class="bg-ochre hover:bg-ochre-dark text-white font-semibold px-5 py-2.5 text-sm transition-colors whitespace-nowrap">
+                Ir a Órdenes
+            </a>
+        </div>
+
+        <div class="flex items-baseline justify-between mt-20 mb-3 pb-3 border-b border-line" id="tisanas">
+            <h2 class="font-serif text-2xl text-pine">Tisanas preparadas</h2>
+            <span class="text-xs text-ink/45">Mezclas medicinales · 33 fórmulas</span>
+        </div>
+        <p class="text-ink/60 text-sm mb-6 max-w-2xl">Combinaciones de hierbas ya formuladas, identificadas por número. Haga clic en cada una para ver ingredientes y modo de preparación completos.</p>
+        <div id="tisanas-list">
+            <a href="catalogo/tisanas/1-mezcla-antiasmatica.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°1 Mezcla Antiasmática" data-uses="Antialérgica, alivia la respiración, evita los ataques de asma, excelente en todo tipo de afecciones alérgicas, urticaria, prurito, dermatitis, eczemas.">
+                <h4 class="font-serif text-base text-ochre-dark">N°1 Mezcla Antiasmática</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Antialérgica, alivia la respiración, evita los ataques de asma, excelente en todo tipo de afecciones alérgicas, urticaria, prurito, dermatitis, eczemas.</p>
+            </a>
+            <a href="catalogo/tisanas/2-mezcla-antidiabetica.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°2 Mezcla Antidiabética" data-uses="Normaliza el azúcar de la sangre y la orina. Estimula la función del páncreas para la elaboración de la insulina natural.">
+                <h4 class="font-serif text-base text-ochre-dark">N°2 Mezcla Antidiabética</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Normaliza el azúcar de la sangre y la orina. Estimula la función del páncreas para la elaboración de la insulina natural.</p>
+            </a>
+            <a href="catalogo/tisanas/3-mezcla-antidiarreica.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°3 Mezcla Antidiarreica" data-uses="Poderoso astringente, inhibidor de la quinesia intestinal.">
+                <h4 class="font-serif text-base text-ochre-dark">N°3 Mezcla Antidiarreica</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Poderoso astringente, inhibidor de la quinesia intestinal.</p>
+            </a>
+            <a href="catalogo/tisanas/4-mezcla-antihemorroidal.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°4 Mezcla Antihemorroidal" data-uses="En cualquier caso de hemorroides, internas o externas, sangrantes o inflamadas.">
+                <h4 class="font-serif text-base text-ochre-dark">N°4 Mezcla Antihemorroidal</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">En cualquier caso de hemorroides, internas o externas, sangrantes o inflamadas.</p>
+            </a>
+            <a href="catalogo/tisanas/5-mezcla-antioxidante.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°5 Mezcla Antioxidante" data-uses="Actúa capturando los radicales libres, previene el envejecimiento prematuro de los tejidos, irrigación cerebral, memoria, vista y oído.">
+                <h4 class="font-serif text-base text-ochre-dark">N°5 Mezcla Antioxidante</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Actúa capturando los radicales libres, previene el envejecimiento prematuro de los tejidos, irrigación cerebral, memoria, vista y oído.</p>
+            </a>
+            <a href="catalogo/tisanas/6-mezcla-antirreumatica.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°6 Mezcla Antirreumática" data-uses="Combate el reumatismo en todas sus formas, elimina dolores musculares, gota ciática, artritis, ácido úrico.">
+                <h4 class="font-serif text-base text-ochre-dark">N°6 Mezcla Antirreumática</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate el reumatismo en todas sus formas, elimina dolores musculares, gota ciática, artritis, ácido úrico.</p>
+            </a>
+            <a href="catalogo/tisanas/7-mezcla-antivarices.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°7 Mezcla Antivárices" data-uses="Indicado para mejorar el movimiento circulatorio de las personas afectadas por várices, purifica la sangre y contribuye a fortalecer aquellas venas propensas a debilitarse.">
+                <h4 class="font-serif text-base text-ochre-dark">N°7 Mezcla Antivárices</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Indicado para mejorar el movimiento circulatorio de las personas afectadas por várices, purifica la sangre y contribuye a fortalecer aquellas venas propensas a debilitarse.</p>
+            </a>
+            <a href="catalogo/tisanas/8-mezcla-depurativa.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°8 Mezcla Depurativa" data-uses="Depurativo de la sangre, elimina las toxinas del organismo, excelente para combatir enfermedades de la piel, acné, eczemas y manchas.">
+                <h4 class="font-serif text-base text-ochre-dark">N°8 Mezcla Depurativa</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativo de la sangre, elimina las toxinas del organismo, excelente para combatir enfermedades de la piel, acné, eczemas y manchas.</p>
+            </a>
+            <a href="catalogo/tisanas/9-mezcla-diuretica.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°9 Mezcla Diurética" data-uses="Diurético, activador del funcionamiento de los riñones, normalizador de vías urinarias, combate arenillas y cistitis.">
+                <h4 class="font-serif text-base text-ochre-dark">N°9 Mezcla Diurética</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Diurético, activador del funcionamiento de los riñones, normalizador de vías urinarias, combate arenillas y cistitis.</p>
+            </a>
+            <a href="catalogo/tisanas/10-mezcla-estimulante.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°10 Mezcla Estimulante" data-uses="Regulariza la función sexual (ambos sexos), estimula la virilidad en forma natural.">
+                <h4 class="font-serif text-base text-ochre-dark">N°10 Mezcla Estimulante</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Regulariza la función sexual (ambos sexos), estimula la virilidad en forma natural.</p>
+            </a>
+            <a href="catalogo/tisanas/11-mezcla-expectorante.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°11 Mezcla Expectorante" data-uses="Tos, catarro, resfrío, bronquitis, catarro de fumadores, para combatir el asma y la tos convulsa.">
+                <h4 class="font-serif text-base text-ochre-dark">N°11 Mezcla Expectorante</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tos, catarro, resfrío, bronquitis, catarro de fumadores, para combatir el asma y la tos convulsa.</p>
+            </a>
+            <a href="catalogo/tisanas/12-mezcla-hepatodigestiva.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°12 Mezcla Hepatodigestiva" data-uses="Normaliza el funcionamiento del hígado y vesícula, indicada contra insuficiencia hepática y biliar, ictericia. Muy buen digestivo.">
+                <h4 class="font-serif text-base text-ochre-dark">N°12 Mezcla Hepatodigestiva</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Normaliza el funcionamiento del hígado y vesícula, indicada contra insuficiencia hepática y biliar, ictericia. Muy buen digestivo.</p>
+            </a>
+            <a href="catalogo/tisanas/13-mezcla-hipotensor.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°13 Mezcla Hipotensor" data-uses="Activa la circulación de la sangre regulando la presión arterial, combate la artritis y la arteriosclerosis.">
+                <h4 class="font-serif text-base text-ochre-dark">N°13 Mezcla Hipotensor</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Activa la circulación de la sangre regulando la presión arterial, combate la artritis y la arteriosclerosis.</p>
+            </a>
+            <a href="catalogo/tisanas/14-mezcla-adelgazante.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°14 Mezcla Adelgazante" data-uses="Quema las grasas y reduce el apetito, provocando adelgazamiento natural, no tiene contraindicaciones ya que no es laxante ni diurético.">
+                <h4 class="font-serif text-base text-ochre-dark">N°14 Mezcla Adelgazante</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Quema las grasas y reduce el apetito, provocando adelgazamiento natural, no tiene contraindicaciones ya que no es laxante ni diurético.</p>
+            </a>
+            <a href="catalogo/tisanas/15-mezcla-acido-urico.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°15 Mezcla Ácido Úrico" data-uses="Reduce el ácido úrico, combate gota, ciática, artritis y dolor muscular.">
+                <h4 class="font-serif text-base text-ochre-dark">N°15 Mezcla Ácido Úrico</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Reduce el ácido úrico, combate gota, ciática, artritis y dolor muscular.</p>
+            </a>
+            <a href="catalogo/tisanas/16-mezcla-colesterol.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°16 Mezcla Colesterol" data-uses="Combate la acumulación y depósito de grasa, disminuye la viscosidad sanguínea a nivel normal.">
+                <h4 class="font-serif text-base text-ochre-dark">N°16 Mezcla Colesterol</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate la acumulación y depósito de grasa, disminuye la viscosidad sanguínea a nivel normal.</p>
+            </a>
+            <a href="catalogo/tisanas/17-mezcla-purgo-laxante.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°17 Mezcla Purgo Laxante" data-uses="Suave laxante y normalizador de la flora intestinal, regulariza su función sin crear acostumbramiento ni efectos secundarios.">
+                <h4 class="font-serif text-base text-ochre-dark">N°17 Mezcla Purgo Laxante</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Suave laxante y normalizador de la flora intestinal, regulariza su función sin crear acostumbramiento ni efectos secundarios.</p>
+            </a>
+            <a href="catalogo/tisanas/18-mezcla-sedante-nervioso.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°18 Mezcla Sedante Nervioso" data-uses="Excelente para trastornos nerviosos que provocan vértigo, irritabilidad, insomnio.">
+                <h4 class="font-serif text-base text-ochre-dark">N°18 Mezcla Sedante Nervioso</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Excelente para trastornos nerviosos que provocan vértigo, irritabilidad, insomnio.</p>
+            </a>
+            <a href="catalogo/tisanas/19-mezcla-antiparasitaria.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°19 Mezcla Antiparasitaria" data-uses="Combate amebas, lombrices, oxiuros, elimina toda clase de parásitos de los intestinos en niños y adultos.">
+                <h4 class="font-serif text-base text-ochre-dark">N°19 Mezcla Antiparasitaria</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate amebas, lombrices, oxiuros, elimina toda clase de parásitos de los intestinos en niños y adultos.</p>
+            </a>
+            <a href="catalogo/tisanas/20-mezcla-para-yerba-mate.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°20 Mezcla Para Yerba Mate" data-uses="Mezcla de las más exquisitas hierbas aromáticas, que además de darle al mate un agradable sabor, vuelve a la yerba antiácida y digestiva.">
+                <h4 class="font-serif text-base text-ochre-dark">N°20 Mezcla Para Yerba Mate</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Mezcla de las más exquisitas hierbas aromáticas, que además de darle al mate un agradable sabor, vuelve a la yerba antiácida y digestiva.</p>
+            </a>
+            <a href="catalogo/tisanas/21-mezcla-reguladora-menstrual.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°21 Mezcla Reguladora Menstrual" data-uses="Regulariza los períodos menstruales, calma dolores e inflamaciones.">
+                <h4 class="font-serif text-base text-ochre-dark">N°21 Mezcla Reguladora Menstrual</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Regulariza los períodos menstruales, calma dolores e inflamaciones.</p>
+            </a>
+            <a href="catalogo/tisanas/22-mezcla-colagogo.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°22 Mezcla Colagogo" data-uses="Inflamaciones y dolores del hígado, vesícula, dolores abdominales, úlcera, estómago, elimina acidez estomacal.">
+                <h4 class="font-serif text-base text-ochre-dark">N°22 Mezcla Colagogo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Inflamaciones y dolores del hígado, vesícula, dolores abdominales, úlcera, estómago, elimina acidez estomacal.</p>
+            </a>
+            <a href="catalogo/tisanas/23-mezcla-te-del-nino.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°23 Mezcla Té del Niño" data-uses="Contra empachos infantiles, diarreas leves, gases, inflamación intestinal.">
+                <h4 class="font-serif text-base text-ochre-dark">N°23 Mezcla Té del Niño</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Contra empachos infantiles, diarreas leves, gases, inflamación intestinal.</p>
+            </a>
+            <a href="catalogo/tisanas/24-mezcla-anticardiaca.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°24 Mezcla Anticardíaca" data-uses="Recomendada para enfermos del corazón, dificultad respiratoria y todo tipo de afecciones cardíacas.">
+                <h4 class="font-serif text-base text-ochre-dark">N°24 Mezcla Anticardíaca</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Recomendada para enfermos del corazón, dificultad respiratoria y todo tipo de afecciones cardíacas.</p>
+            </a>
+            <a href="catalogo/tisanas/25-mezcla-calculos-de-rinones.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°25 Mezcla Cálculos de Riñones" data-uses="Activador del funcionamiento de los riñones, desinfecta las vías urinarias, combate el ácido úrico, cálculos renales, arenilla, dolores de vejiga, riñón y cintura.">
+                <h4 class="font-serif text-base text-ochre-dark">N°25 Mezcla Cálculos de Riñones</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Activador del funcionamiento de los riñones, desinfecta las vías urinarias, combate el ácido úrico, cálculos renales, arenilla, dolores de vejiga, riñón y cintura.</p>
+            </a>
+            <a href="catalogo/tisanas/26-mezcla-calculos-de-vesicula.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°26 Mezcla Cálculos de Vesícula" data-uses="Indicado para ataques biliares, dolencias, elimina arenillas y cálculos.">
+                <h4 class="font-serif text-base text-ochre-dark">N°26 Mezcla Cálculos de Vesícula</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Indicado para ataques biliares, dolencias, elimina arenillas y cálculos.</p>
+            </a>
+            <a href="catalogo/tisanas/27-mezcla-psoriasis.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°27 Mezcla Psoriasis" data-uses="Indicada contra placas eczematosas, piel seca y agrietada, ardor, prurito, picazón, etc. Se usa en compresas hervidas para lavar y dejar secar sobre la piel.">
+                <h4 class="font-serif text-base text-ochre-dark">N°27 Mezcla Psoriasis</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Indicada contra placas eczematosas, piel seca y agrietada, ardor, prurito, picazón, etc. Se usa en compresas hervidas para lavar y dejar secar sobre la piel.</p>
+            </a>
+            <a href="catalogo/tisanas/28-mezcla-prostata.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°28 Mezcla Próstata" data-uses="Se recomienda en inflamaciones y ardor al orinar, deseos frecuentes con escasa fuerza y cantidad.">
+                <h4 class="font-serif text-base text-ochre-dark">N°28 Mezcla Próstata</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Se recomienda en inflamaciones y ardor al orinar, deseos frecuentes con escasa fuerza y cantidad.</p>
+            </a>
+            <a href="catalogo/tisanas/29-mezcla-dolor-de-cabeza.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°29 Mezcla Dolor de Cabeza" data-uses="Descongestivo, efectivo neutralizante del dolor en la jaqueca hepática y alérgica.">
+                <h4 class="font-serif text-base text-ochre-dark">N°29 Mezcla Dolor de Cabeza</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Descongestivo, efectivo neutralizante del dolor en la jaqueca hepática y alérgica.</p>
+            </a>
+            <a href="catalogo/tisanas/30-mezcla-tonico-capilar.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°30 Mezcla Tónico Capilar" data-uses="Combate la caída de cabello y favorece su crecimiento, elimina la caspa. Se usa como loción capilar.">
+                <h4 class="font-serif text-base text-ochre-dark">N°30 Mezcla Tónico Capilar</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate la caída de cabello y favorece su crecimiento, elimina la caspa. Se usa como loción capilar.</p>
+            </a>
+            <a href="catalogo/tisanas/31-mezcla-menopausia.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°31 Mezcla Menopausia" data-uses="Retiro del período menstrual en la edad crítica, calores, sofocones y nerviosismo producido por el cambio.">
+                <h4 class="font-serif text-base text-ochre-dark">N°31 Mezcla Menopausia</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Retiro del período menstrual en la edad crítica, calores, sofocones y nerviosismo producido por el cambio.</p>
+            </a>
+            <a href="catalogo/tisanas/32-mezcla-alcoholismo.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="N°32 Mezcla Alcoholismo" data-uses="Coadyuvante en la retirada del alcohol, desintoxica y suprime la necesidad de tomar.">
+                <h4 class="font-serif text-base text-ochre-dark">N°32 Mezcla Alcoholismo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Coadyuvante en la retirada del alcohol, desintoxica y suprime la necesidad de tomar.</p>
+            </a>
+            <a href="catalogo/tisanas/te-de-los-nueve-yuyos.html" class="ledger-row block py-4 grid grid-cols-1 sm:grid-cols-[260px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Té de los Nueve Yuyos" data-uses="Digestivo, colagogo.">
+                <h4 class="font-serif text-base text-ochre-dark">Té de los Nueve Yuyos</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo, colagogo.</p>
+            </a>
+        </div>
+
+        <div class="flex items-baseline justify-between mt-20 mb-3 pb-3 border-b border-line" id="hierbas-sueltas">
+            <h2 class="font-serif text-2xl text-pine">Hierbas y especias sueltas</h2>
+            <span class="text-xs text-ink/45">Orden alfabético · 146 variedades</span>
+        </div>
+        <p class="text-ink/60 text-sm mb-6 max-w-2xl">Disponibles fraccionadas desde 10 gr hasta 1 kilo. Use los filtros para ver de un vistazo las hierbas agrupadas por uso principal, o haga clic en cada una para ver su ficha completa.</p>
+
+        <div class="mb-8">
+            <span class="block text-xs font-semibold uppercase tracking-wide text-ink/40 mb-2">Filtrar por uso principal</span>
+            <div id="category-filters" class="flex flex-wrap gap-2 text-xs sm:text-sm">
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="all" aria-pressed="true">Todas</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="digestivas" aria-pressed="false">Digestivas</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="hepaticas" aria-pressed="false">Hepáticas</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="respiratorias" aria-pressed="false">Respiratorias</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="circulatorias" aria-pressed="false">Circulatorias / várices</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="nervioso" aria-pressed="false">Relajantes / sistema nervioso</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="urinarias" aria-pressed="false">Urinarias / diuréticas</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="piel" aria-pressed="false">Piel</button>
+                <button type="button" class="cat-chip px-3 py-1.5" data-cat="otras" aria-pressed="false">Otras</button>
+
+            </div>
+        </div>
+
+        <div id="hierbas-list">
+            <a href="catalogo/hierbas-sueltas/alcachofa.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Alcachofa" data-uses="Alcachofa Afecciones hepáticas, también diurético, cirrosis, colecistitis" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Alcachofa</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Afecciones hepáticas, también diurético, cirrosis, colecistitis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/alhucema.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Alhucema" data-uses="Alhucema Para sahumar, en catarros y asma, vértigo y mareos" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Alhucema</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para sahumar, en catarros y asma, vértigo y mareos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/altamisa.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Altamisa" data-uses="Altamisa Tónico para el estómago, neuralgias, vermífugo" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Altamisa</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tónico para el estómago, neuralgias, vermífugo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/ambay.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Ambay" data-uses="Ambay Afecciones catarrales, asma, bronquitis, tos rebelde, vías respiratorias" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Ambay</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Afecciones catarrales, asma, bronquitis, tos rebelde, vías respiratorias</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/anis-estrellado.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Anís Estrellado" data-uses="Anís Estrellado Combate gases, flatos, cólicos intestinales en niños y adultos" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Anís Estrellado</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate gases, flatos, cólicos intestinales en niños y adultos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/anis-en-grano.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Anís en Grano" data-uses="Anís en Grano Favorece secreción láctea en madres que crían, digestivo" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Anís en Grano</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Favorece secreción láctea en madres que crían, digestivo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/amargon.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Amargón" data-uses="Amargón Depurativo para la sangre, hepático, diurético" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Amargón</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativo para la sangre, hepático, diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/aguaribay.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Aguaribay" data-uses="Aguaribay Catarros bronquiales, pulmonares, tos, resfríos" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Aguaribay</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Catarros bronquiales, pulmonares, tos, resfríos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/azahar-flor.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Azahar Flor" data-uses="Azahar Flor Sedante del sistema nervioso" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Azahar Flor</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Sedante del sistema nervioso</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/anacahuita.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Anacahuita" data-uses="Anacahuita Calma la tos, combate bronquitis, catarro" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Anacahuita</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Calma la tos, combate bronquitis, catarro</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/apio-cimarron.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Apio Cimarrón" data-uses="Apio Cimarrón Diurético, combate el reuma, gota, artritis" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Apio Cimarrón</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Diurético, combate el reuma, gota, artritis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/ajenjo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Ajenjo" data-uses="Ajenjo Aperitivo amargo, estimulante del apetito, digestivo" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Ajenjo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Aperitivo amargo, estimulante del apetito, digestivo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/acoro.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Ácoro" data-uses="Ácoro Para digestiones lentas, difíciles y dolorosas, quita el vicio de fumar" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Ácoro</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para digestiones lentas, difíciles y dolorosas, quita el vicio de fumar</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/arandano.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Arándano" data-uses="Arándano Contiene vitamina C y E, excelente para vías urinarias, problemas en la vista y en la piel" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Arándano</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Contiene vitamina C y E, excelente para vías urinarias, problemas en la vista y en la piel</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/baila-bien.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Baila Bien" data-uses="Baila Bien Contra impotencia sexual en ambos sexos, cura heridas ulceradas" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Baila Bien</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Contra impotencia sexual en ambos sexos, cura heridas ulceradas</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/barba-de-choclo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Barba de Choclo" data-uses="Barba de Choclo Combate afecciones de vías urinarias, vejiga, riñones, arenilla" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Barba de Choclo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate afecciones de vías urinarias, vejiga, riñones, arenilla</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/boldo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Boldo" data-uses="Boldo Afecciones hepáticas, cálculos, dispepsia, manchas en la mano y cara" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Boldo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Afecciones hepáticas, cálculos, dispepsia, manchas en la mano y cara</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/borraja.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Borraja" data-uses="Borraja Expectorante, bronquial, resfrío, gripe, sarampión, diurético" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Borraja</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Expectorante, bronquial, resfrío, gripe, sarampión, diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/barba-de-piedra.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Barba de Piedra" data-uses="Barba de Piedra Vías urinarias, reumatismo, afecciones de garganta en gárgaras" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Barba de Piedra</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Vías urinarias, reumatismo, afecciones de garganta en gárgaras</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/bardana.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Bardana" data-uses="Bardana Depurativo, diurético" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Bardana</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativo, diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/brea-flor.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Brea Flor" data-uses="Brea Flor Afonías, cura infecciones de garganta, combate dolor de oídos" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Brea Flor</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Afonías, cura infecciones de garganta, combate dolor de oídos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/benjui.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Benjuí" data-uses="Benjuí Para sahumar ambientes" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Benjuí</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para sahumar ambientes</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cabo-toril.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cabo Toril" data-uses="Cabo Toril Tónico cardíaco, estimulante, astringente, arteriosclerosis" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Cabo Toril</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tónico cardíaco, estimulante, astringente, arteriosclerosis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/calaguala.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Calaguala" data-uses="Calaguala Regulador de funciones menstruales, diurético, depurativo" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Calaguala</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Regulador de funciones menstruales, diurético, depurativo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/carqueja-ancha.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Carqueja Ancha" data-uses="Carqueja Ancha Enfermedades del hígado, estómago, riñones, depurativo" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Carqueja Ancha</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Enfermedades del hígado, estómago, riñones, depurativo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/canchalagua.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Canchalagua" data-uses="Canchalagua Tónica, diurética, hepática" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Canchalagua</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tónica, diurética, hepática</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/canela.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Canela" data-uses="Canela Tónico, estimulante, digestivo" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Canela</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tónico, estimulante, digestivo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cardo-santo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cardo Santo" data-uses="Cardo Santo Depurativo, diurético, estimulante" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Cardo Santo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativo, diurético, estimulante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cascara-sagrada.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cáscara Sagrada" data-uses="Cáscara Sagrada Combate estreñimiento, afecciones hepatobiliares" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Cáscara Sagrada</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate estreñimiento, afecciones hepatobiliares</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cedron.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cedrón" data-uses="Cedrón Para las digestiones lentas y difíciles, estados nerviosos, palpitaciones" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Cedrón</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para las digestiones lentas y difíciles, estados nerviosos, palpitaciones</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/charrua.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Charrúa" data-uses="Charrúa Combate diarreas, afecciones cutáneas" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Charrúa</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate diarreas, afecciones cutáneas</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cola-de-caballo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cola de Caballo" data-uses="Cola de Caballo Excelente diurético, combate el reuma, hidropesía, arenilla" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Cola de Caballo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Excelente diurético, combate el reuma, hidropesía, arenilla</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/congorosa.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Congorosa" data-uses="Congorosa Digestivo, calma los dolores estomacales, gripe, sarampión, escarlatina" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Congorosa</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo, calma los dolores estomacales, gripe, sarampión, escarlatina</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cola-de-quirquincho.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cola de Quirquincho" data-uses="Cola de Quirquincho Tradicionalmente asociada a la vitalidad de ambos sexos" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Cola de Quirquincho</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tradicionalmente asociada a la vitalidad de ambos sexos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cascara-de-granada.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cáscara de Granada" data-uses="Cáscara de Granada Combate diarreas y colitis" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Cáscara de Granada</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate diarreas y colitis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cepa-de-caballo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cepa de Caballo" data-uses="Cepa de Caballo Enfermedades del hígado, riñón, vejiga, diurético" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Cepa de Caballo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Enfermedades del hígado, riñón, vejiga, diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/contrayerba.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Contrayerba" data-uses="Contrayerba Diurético, sudorífico, usado en sarampión, escarlatina, viruela" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Contrayerba</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Diurético, sudorífico, usado en sarampión, escarlatina, viruela</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/cuacia.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Cuacia" data-uses="Cuacia Combate parásitos del cuero cabelludo, liendres" data-category="piel">
+                <h4 class="font-serif text-base text-pine">Cuacia</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate parásitos del cuero cabelludo, liendres</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/culandrillo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Culandrillo" data-uses="Culandrillo Regulariza períodos menstruales, calma dolores menstruales" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Culandrillo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Regulariza períodos menstruales, calma dolores menstruales</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/chachacoma.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Chachacoma" data-uses="Chachacoma Bronquitis simple y aguda, tos convulsa, afecciones de vías respiratorias, catarros en general" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Chachacoma</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Bronquitis simple y aguda, tos convulsa, afecciones de vías respiratorias, catarros en general</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/chanar-corteza.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Chañar Corteza" data-uses="Chañar Corteza Expectorante, combate toda clase de tos, bronquitis, resfríos" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Chañar Corteza</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Expectorante, combate toda clase de tos, bronquitis, resfríos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/centella-asiatica.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Centella Asiática" data-uses="Centella Asiática Combate celulitis, cicatrizante" data-category="piel">
+                <h4 class="font-serif text-base text-pine">Centella Asiática</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate celulitis, cicatrizante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/chia-omega-3.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Chía (Omega 3)" data-uses="Chía (Omega 3) En harina o semillas, ayuda a normalizar la presión arterial y el colesterol, protege al corazón" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Chía (Omega 3)</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">En harina o semillas, ayuda a normalizar la presión arterial y el colesterol, protege al corazón</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/doradilla-verde.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Doradilla Verde" data-uses="Doradilla Verde Regulariza menstruaciones retardadas, hepático, diurético" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Doradilla Verde</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Regulariza menstruaciones retardadas, hepático, diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/enebro.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Enebro" data-uses="Enebro Combate arenilla, cálculo de riñón, molestias en vejiga" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Enebro</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate arenilla, cálculo de riñón, molestias en vejiga</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/estigma-de-maiz.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Estigma de Maíz" data-uses="Estigma de Maíz Diurético, inflamaciones de vejiga" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Estigma de Maíz</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Diurético, inflamaciones de vejiga</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/espina-colorada.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Espina Colorada" data-uses="Espina Colorada Hígado, cálculo, combate pecas y manchas hepáticas" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Espina Colorada</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Hígado, cálculo, combate pecas y manchas hepáticas</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/eneldo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Eneldo" data-uses="Eneldo Digestivo, combate aerofagias, mejora las menstruaciones y es sedante" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Eneldo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo, combate aerofagias, mejora las menstruaciones y es sedante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/espinillo-flor.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Espinillo Flor" data-uses="Espinillo Flor Combate afecciones de la garganta, dolores de oído" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Espinillo Flor</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate afecciones de la garganta, dolores de oído</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/eucalipto.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Eucalipto" data-uses="Eucalipto Catarros crónicos, asma, bronquitis, tos convulsa" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Eucalipto</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Catarros crónicos, asma, bronquitis, tos convulsa</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/estoraque.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Estoraque" data-uses="Estoraque Para sahumerios, en enfermedades del aparato respiratorio" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Estoraque</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para sahumerios, en enfermedades del aparato respiratorio</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/equinacea.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Equinácea" data-uses="Equinácea Poderoso inmunoestimulante, muy bueno para resfríos y gripe, antiinflamatorio y cicatrizante" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Equinácea</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Poderoso inmunoestimulante, muy bueno para resfríos y gripe, antiinflamatorio y cicatrizante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/fucus.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Fucus" data-uses="Fucus Adelgazante, combate el bocio" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Fucus</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Adelgazante, combate el bocio</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/fumaria.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Fumaria" data-uses="Fumaria Depurativa de la sangre, combate granos y eczema" data-category="piel">
+                <h4 class="font-serif text-base text-pine">Fumaria</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativa de la sangre, combate granos y eczema</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/fresno.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Fresno" data-uses="Fresno Reumatismo, poderoso diurético" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Fresno</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Reumatismo, poderoso diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/fofosa.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Fofosa" data-uses="Fofosa Ayuda con indigestiones, dolores de vientre, inflamaciones intestinales" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Fofosa</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Ayuda con indigestiones, dolores de vientre, inflamaciones intestinales</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/genciana.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Genciana" data-uses="Genciana Aperitivo para inapetentes, tónico nervioso, digestivo estomacal" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Genciana</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Aperitivo para inapetentes, tónico nervioso, digestivo estomacal</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/guaycuru.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Guaycurú" data-uses="Guaycurú Combate el asma, cura problemas hepáticos, secreción biliar" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Guaycurú</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate el asma, cura problemas hepáticos, secreción biliar</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/granada.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Granada" data-uses="Granada Combate diarrea y colitis en niños y adultos" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Granada</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate diarrea y colitis en niños y adultos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/ginkgo-biloba.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Ginkgo Biloba" data-uses="Ginkgo Biloba Antioxidante, favorece la irrigación cerebral, memoria, vista y oídos" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Ginkgo Biloba</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Antioxidante, favorece la irrigación cerebral, memoria, vista y oídos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/helecho-macho.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Helecho Macho" data-uses="Helecho Macho Combate lombriz solitaria, parásitos" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Helecho Macho</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate lombriz solitaria, parásitos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/hamamelis.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Hamamelis" data-uses="Hamamelis Combate flebitis, várices, hemorroides" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Hamamelis</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate flebitis, várices, hemorroides</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/hinojo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Hinojo" data-uses="Hinojo Combate gases en las vías digestivas, calambres estomacales" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Hinojo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate gases en las vías digestivas, calambres estomacales</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/heliotropium.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Heliotropium" data-uses="Heliotropium Combate ácido úrico, problemas de vías urinarias" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Heliotropium</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate ácido úrico, problemas de vías urinarias</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/hipericon.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Hipéricon" data-uses="Hipéricon Antidepresivo, contra la ansiedad y el insomnio nervioso" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Hipéricon</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Antidepresivo, contra la ansiedad y el insomnio nervioso</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/hisopo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Hisopo" data-uses="Hisopo Adelgazante, bronquitis, asma, catarros, laringitis" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Hisopo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Adelgazante, bronquitis, asma, catarros, laringitis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/incienso.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Incienso" data-uses="Incienso Para realizar sahumerios" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Incienso</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para realizar sahumerios</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/incayuyo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Incayuyo" data-uses="Incayuyo Poderoso digestivo, empacho, males de las vías digestivas" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Incayuyo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Poderoso digestivo, empacho, males de las vías digestivas</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/jarilla.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Jarilla" data-uses="Jarilla Combate sabañones y hemorroides, circulación de la sangre" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Jarilla</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate sabañones y hemorroides, circulación de la sangre</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/laurel.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Laurel" data-uses="Laurel Buen tónico del sistema nervioso, refuerza el estómago" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Laurel</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Buen tónico del sistema nervioso, refuerza el estómago</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/lengua-de-vaca.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Lengua de Vaca" data-uses="Lengua de Vaca Reparador de energías, tónico en general, combate anemias" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Lengua de Vaca</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Reparador de energías, tónico en general, combate anemias</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/llanten.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Llantén" data-uses="Llantén Para ronqueras, afonías, inflamaciones de garganta y boca" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Llantén</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para ronqueras, afonías, inflamaciones de garganta y boca</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/lapacho-corteza.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Lapacho Corteza" data-uses="Lapacho Corteza Diurético, vías urinarias, circulación sanguínea, cicatrizante de heridas y quemaduras" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Lapacho Corteza</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Diurético, vías urinarias, circulación sanguínea, cicatrizante de heridas y quemaduras</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/lino-semilla-o-harina.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Lino (semilla o harina)" data-uses="Lino (semilla o harina) Laxante, suaviza la mucosa intestinal, antiinflamatorio, ayuda a reducir el colesterol LDL" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Lino (semilla o harina)</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Laxante, suaviza la mucosa intestinal, antiinflamatorio, ayuda a reducir el colesterol LDL</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/malva.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Malva" data-uses="Malva Hemorroides, granos, acné, eczemas" data-category="piel">
+                <h4 class="font-serif text-base text-pine">Malva</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Hemorroides, granos, acné, eczemas</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/manzanilla.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Manzanilla" data-uses="Manzanilla Combate cólicos y calambres intestinales, desarreglos gástricos" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Manzanilla</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate cólicos y calambres intestinales, desarreglos gástricos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/mastuerzo-o-quimpe.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Mastuerzo o Quimpe" data-uses="Mastuerzo o Quimpe Disminuye presión arterial, reconstituyente diurético" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Mastuerzo o Quimpe</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Disminuye presión arterial, reconstituyente diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/matico.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Matico" data-uses="Matico Afecciones de vías urinarias, blenorragias, gonorreas, flujo" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Matico</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Afecciones de vías urinarias, blenorragias, gonorreas, flujo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/melisa.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Melisa" data-uses="Melisa Combate malas digestiones, estados de nervios, angustias" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Melisa</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate malas digestiones, estados de nervios, angustias</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/menta.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Menta" data-uses="Menta Digestivo estomacal, antiespasmódico, dispepsia, contra vómitos" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Menta</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo estomacal, antiespasmódico, dispepsia, contra vómitos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/mil-hombres.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Mil Hombres" data-uses="Mil Hombres Reumatismo, ciática, lumbago, dolores de articulaciones en general" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Mil Hombres</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Reumatismo, ciática, lumbago, dolores de articulaciones en general</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/menta-piperita.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Menta Piperita" data-uses="Menta Piperita Estomacal, digestivo, combate insomnios" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Menta Piperita</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Estomacal, digestivo, combate insomnios</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/marcela.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Marcela" data-uses="Marcela Digestivo estomacal, combate asma" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Marcela</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo estomacal, combate asma</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/muna-muna.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Muña Muña" data-uses="Muña Muña Dolores de vientre, calambres intestinales, cólicos" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Muña Muña</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Dolores de vientre, calambres intestinales, cólicos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/muerdago-o-liguilla.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Muérdago o Liguilla" data-uses="Muérdago o Liguilla Combate hipertensión arterial, diurético, hemostático" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Muérdago o Liguilla</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate hipertensión arterial, diurético, hemostático</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/morera.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Morera" data-uses="Morera Combate diarrea, buenos resultados en apoyo a la diabetes" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Morera</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate diarrea, buenos resultados en apoyo a la diabetes</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/mirra-en-grano.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Mirra en Grano" data-uses="Mirra en Grano Para sahumerios, úlceras, enfermedades de la boca, fortifica las encías, digestiva" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Mirra en Grano</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Para sahumerios, úlceras, enfermedades de la boca, fortifica las encías, digestiva</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/maca.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Maca" data-uses="Maca Reconstituyente para ambos sexos, estimulante, energizante, antidepresivo" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Maca</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Reconstituyente para ambos sexos, estimulante, energizante, antidepresivo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/nencia.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Nencia" data-uses="Nencia Enfermedades del estómago, aperitivo para inapetentes, sistema nervioso" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Nencia</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Enfermedades del estómago, aperitivo para inapetentes, sistema nervioso</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/naranja-amarga.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Naranja Amarga" data-uses="Naranja Amarga Tónico estimulante, estomacal, aperitivo" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Naranja Amarga</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tónico estimulante, estomacal, aperitivo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/nogal.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Nogal" data-uses="Nogal Combate reumatismo, lumbago, ciática" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Nogal</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate reumatismo, lumbago, ciática</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/olivo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Olivo" data-uses="Olivo Disminuye la presión arterial" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Olivo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Disminuye la presión arterial</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/ortiga.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Ortiga" data-uses="Ortiga Depurativo de la sangre, reumatismo" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Ortiga</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativo de la sangre, reumatismo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/oregano.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Orégano" data-uses="Orégano Sedante, calma dolores y espasmos estomacales, digestivo, elimina gases y flatos, catarros y bronquitis crónicos" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Orégano</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Sedante, calma dolores y espasmos estomacales, digestivo, elimina gases y flatos, catarros y bronquitis crónicos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/paico.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Paico" data-uses="Paico Digestivo diurético, combate la amebiasis y afines, empachos de niños" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Paico</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo diurético, combate la amebiasis y afines, empachos de niños</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/palo-azul.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Palo Azul" data-uses="Palo Azul Diurético, depurativo, ciática, lumbago" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Palo Azul</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Diurético, depurativo, ciática, lumbago</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/palo-pichi.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Palo Pichi" data-uses="Palo Pichi Afecciones de vías urinarias, blenorragias, cistitis, gonorreas" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Palo Pichi</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Afecciones de vías urinarias, blenorragias, cistitis, gonorreas</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/pasionaria.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Pasionaria" data-uses="Pasionaria Eficaz sedante, calma el sistema nervioso, ansiedad, palpitaciones" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Pasionaria</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Eficaz sedante, calma el sistema nervioso, ansiedad, palpitaciones</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/pezuna-de-vaca.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Pezuña de Vaca" data-uses="Pezuña de Vaca Tradicionalmente usada para apoyar el control de la diabetes" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Pezuña de Vaca</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Tradicionalmente usada para apoyar el control de la diabetes</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/peperina.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Peperina" data-uses="Peperina Digestivo estomacal" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Peperina</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo estomacal</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/poleo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Poleo" data-uses="Poleo Digestivo estomacal" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Poleo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo estomacal</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/pulmonaria.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Pulmonaria" data-uses="Pulmonaria Combate bronconeumonía, bronquitis, catarros, tos, vías respiratorias" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Pulmonaria</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate bronconeumonía, bronquitis, catarros, tos, vías respiratorias</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/palo-santo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Palo Santo" data-uses="Palo Santo Gran depurativo de la sangre, sudorífico y diurético" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Palo Santo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Gran depurativo de la sangre, sudorífico y diurético</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/pajaro-bobo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Pájaro Bobo" data-uses="Pájaro Bobo Combate el colesterol y ácido úrico" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Pájaro Bobo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate el colesterol y ácido úrico</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/quebracho.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Quebracho" data-uses="Quebracho Contra fatiga, asma, catarros, tos" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Quebracho</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Contra fatiga, asma, catarros, tos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/quebra-arado.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Quebra Arado" data-uses="Quebra Arado Laxante y depurativo, combate el empacho" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Quebra Arado</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Laxante y depurativo, combate el empacho</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/quimpe.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Quimpe" data-uses="Quimpe Disminuye presión arterial, reconstituyente" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Quimpe</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Disminuye presión arterial, reconstituyente</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/romero.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Romero" data-uses="Romero Enfermedades del estómago, hígado, riñones" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Romero</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Enfermedades del estómago, hígado, riñones</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/rosa-petalos.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Rosa Pétalos" data-uses="Rosa Pétalos Combate afecciones oculares" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Rosa Pétalos</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate afecciones oculares</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/ruda.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Ruda" data-uses="Ruda Estomacal, digestivo, aumenta el apetito, facilita la digestión" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Ruda</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Estomacal, digestivo, aumenta el apetito, facilita la digestión</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/regaliz-oruzuz.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Regaliz (Oruzuz)" data-uses="Regaliz (Oruzuz) Toses, bronquitis, catarro de pecho" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Regaliz (Oruzuz)</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Toses, bronquitis, catarro de pecho</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/raiz-de-cana.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Raíz de Caña" data-uses="Raíz de Caña Uso tradicional para suprimir la leche materna en madres que crían" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Raíz de Caña</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Uso tradicional para suprimir la leche materna en madres que crían</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/retotuno.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Retotuño" data-uses="Retotuño Enfermedades del hígado y riñón" data-category="hepaticas">
+                <h4 class="font-serif text-base text-pine">Retotuño</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Enfermedades del hígado y riñón</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/rosa-mosqueta.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Rosa Mosqueta" data-uses="Rosa Mosqueta Importante fuente de vitamina C, cuidado de la piel, suave laxante" data-category="piel">
+                <h4 class="font-serif text-base text-pine">Rosa Mosqueta</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Importante fuente de vitamina C, cuidado de la piel, suave laxante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/salvia.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Salvia" data-uses="Salvia Estimulante tónico, apoyo en cansancio cerebral y memoria" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Salvia</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Estimulante tónico, apoyo en cansancio cerebral y memoria</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/sanguinaria.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Sanguinaria" data-uses="Sanguinaria Muy usada tradicionalmente para diabetes, afecciones de vías urinarias, almorranas" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Sanguinaria</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Muy usada tradicionalmente para diabetes, afecciones de vías urinarias, almorranas</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/sauco.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Sauco" data-uses="Sauco Resfríos, bronquitis, catarros" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Sauco</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Resfríos, bronquitis, catarros</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/sen-hojas-y-foliculos.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Sen (hojas y folículos)" data-uses="Sen (hojas y folículos) Poderoso laxante" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Sen (hojas y folículos)</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Poderoso laxante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/siete-sangrias.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Siete Sangrías" data-uses="Siete Sangrías Disminuye presión arterial, combate arteriosclerosis" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Siete Sangrías</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Disminuye presión arterial, combate arteriosclerosis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/sarandi.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Sarandí" data-uses="Sarandí Uso tradicional asociado al control del azúcar, ligero laxante" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Sarandí</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Uso tradicional asociado al control del azúcar, ligero laxante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/te-de-burro.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Té de Burro" data-uses="Té de Burro Digestivo estomacal" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Té de Burro</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo estomacal</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/tilo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Tilo" data-uses="Tilo Poderoso sedante, antiespasmódico, combate insomnio, palpitaciones" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Tilo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Poderoso sedante, antiespasmódico, combate insomnio, palpitaciones</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/tomillo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Tomillo" data-uses="Tomillo Catarros, bronquitis, tos" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Tomillo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Catarros, bronquitis, tos</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/torongil.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Torongil" data-uses="Torongil Estimulante del corazón, activa la circulación" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Torongil</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Estimulante del corazón, activa la circulación</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/tramontana.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Tramontana" data-uses="Tramontana Depurativo del organismo, combate reumatismo, artritis" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Tramontana</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativo del organismo, combate reumatismo, artritis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/topasaire.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Topasaire" data-uses="Topasaire Combate caspa y caída de cabello" data-category="piel">
+                <h4 class="font-serif text-base text-pine">Topasaire</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate caspa y caída de cabello</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/tusilago.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Tusílago" data-uses="Tusílago Combate catarros, tos, bronquios y especialmente el asma, expectorante" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Tusílago</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Combate catarros, tos, bronquios y especialmente el asma, expectorante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/te-verde.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Té Verde" data-uses="Té Verde Antioxidante, aminora los efectos del estrés y el tabaco, contiene vitamina E" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Té Verde</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Antioxidante, aminora los efectos del estrés y el tabaco, contiene vitamina E</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/te-rojo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Té Rojo" data-uses="Té Rojo Apoya la reducción de colesterol y tensión, digestivo" data-category="circulatorias">
+                <h4 class="font-serif text-base text-pine">Té Rojo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Apoya la reducción de colesterol y tensión, digestivo</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/uva-ursi.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Uva Ursi" data-uses="Uva Ursi Poderoso diurético, combate cistitis, reuma, ciática" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Uva Ursi</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Poderoso diurético, combate cistitis, reuma, ciática</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/usillo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Usillo" data-uses="Usillo Digestivo estomacal" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Usillo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo estomacal</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/una-de-gato.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Uña de Gato" data-uses="Uña de Gato Antiinflamatorio, antioxidante, previene artritis" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Uña de Gato</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Antiinflamatorio, antioxidante, previene artritis</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/valeriana.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Valeriana" data-uses="Valeriana Muy buen sedante y antiespasmódico, combate el nerviosismo en general" data-category="nervioso">
+                <h4 class="font-serif text-base text-pine">Valeriana</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Muy buen sedante y antiespasmódico, combate el nerviosismo en general</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/vira-vira.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Vira Vira" data-uses="Vira Vira Expectorante, combate catarros, resfríos, gripes" data-category="respiratorias">
+                <h4 class="font-serif text-base text-pine">Vira Vira</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Expectorante, combate catarros, resfríos, gripes</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/vinal.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Vinal" data-uses="Vinal Uso tradicional en infecciones oculares" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Vinal</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Uso tradicional en infecciones oculares</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-buena.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba Buena" data-uses="Yerba Buena Estomacal, dispepsia, combate malas digestiones" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Yerba Buena</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Estomacal, dispepsia, combate malas digestiones</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-carnicera.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba Carnicera" data-uses="Yerba Carnicera Digestiva y hepática" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Yerba Carnicera</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestiva y hepática</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-de-la-piedra.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba de la Piedra" data-uses="Yerba de la Piedra Afecciones en boca y garganta, vías urinarias" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Yerba de la Piedra</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Afecciones en boca y garganta, vías urinarias</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-de-la-perdiz.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba de la Perdiz" data-uses="Yerba de la Perdiz Depurativa y diurética, regulariza períodos menstruales" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Yerba de la Perdiz</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativa y diurética, regulariza períodos menstruales</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-de-pollo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba de Pollo" data-uses="Yerba de Pollo Digestiva, ayuda con empachos en niños" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Yerba de Pollo</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestiva, ayuda con empachos en niños</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-del-pajaro-tomillo.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba del Pájaro (Tomillo)" data-uses="Yerba del Pájaro (Tomillo) Digestivo estomacal" data-category="digestivas">
+                <h4 class="font-serif text-base text-pine">Yerba del Pájaro (Tomillo)</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Digestivo estomacal</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-meona.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba Meona" data-uses="Yerba Meona Diurético, enfermedades de vías urinarias" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Yerba Meona</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Diurético, enfermedades de vías urinarias</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-del-toro.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba del Toro" data-uses="Yerba del Toro Uso tradicional para reducir el consumo de alcohol" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Yerba del Toro</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Uso tradicional para reducir el consumo de alcohol</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-del-venado.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba del Venado" data-uses="Yerba del Venado Depurativo de la sangre, sudorífico, se usa para bajar temperatura durante enfermedades" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Yerba del Venado</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Depurativo de la sangre, sudorífico, se usa para bajar temperatura durante enfermedades</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/yerba-del-sapo-marrubio.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Yerba del Sapo (Marrubio)" data-uses="Yerba del Sapo (Marrubio) Regulariza menstruaciones, desinflama, depurativo y refrescante" data-category="otras">
+                <h4 class="font-serif text-base text-pine">Yerba del Sapo (Marrubio)</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Regulariza menstruaciones, desinflama, depurativo y refrescante</p>
+            </a>
+            <a href="catalogo/hierbas-sueltas/zarzaparrilla.html" class="ledger-row block py-3 grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 sm:gap-8 hover:bg-white/50 transition-colors" data-name="Zarzaparrilla" data-uses="Zarzaparrilla Eficaz depurativo de la sangre, usada en afecciones de vías urinarias" data-category="urinarias">
+                <h4 class="font-serif text-base text-pine">Zarzaparrilla</h4>
+                <p class="text-ink/70 text-sm leading-relaxed">Eficaz depurativo de la sangre, usada en afecciones de vías urinarias</p>
+            </a>
+        </div>
+
+        <!-- FAQ Mayorista -->
+        <section class="mt-16 border-t border-line pt-10" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="font-serif text-3xl font-medium text-pine mb-6">Preguntas frecuentes mayoristas</h2>
+            <div class="space-y-3 max-w-3xl">
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Cómo se vende cada hierba?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Vendemos por kilo, o por paquetes (o pack de paquetes) según lo que usted necesite. Escríbanos con su selección y le confirmamos la presentación disponible.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Qué formas de pago aceptan?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Aceptamos transferencia bancaria y efectivo. Coordinamos la forma de pago junto con el envío al momento de confirmar el pedido.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿A qué zonas envían y en cuánto tiempo?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Enviamos a todo el país a través de transporte y correo. Los tiempos varían según destino; al cotizar su pedido le informamos el plazo estimado.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Cómo se cotiza el pedido? ¿Por qué no hay precios publicados?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Sus precios varían según temporada, clima y disponibilidad de cosecha. Por eso cotizamos cada pedido a medida: arme su selección en <a href="orders.html" class="text-pine underline">Órdenes</a> o escríbanos por WhatsApp y le respondemos con el presupuesto actualizado.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Cómo hago un pedido?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Puede armar su selección en la sección <a href="orders.html" class="text-pine underline">Órdenes</a>, o directamente escribirnos por WhatsApp o por el formulario de <a href="contact.html" class="text-pine underline">Contacto</a> contándonos qué hierbas y cantidades necesita.</p>
+                </details>
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -287,11 +941,25 @@
             </div>
         </div>
         <div class="mt-10 border-t border-paper/10 pt-6 text-center text-xs text-paper/40 max-w-7xl mx-auto px-4">
-            © 2026 Hierbas de Córdoba. Todos los derechos reservados.
+            © 2026 Hierbas Medicinales La Paz. Todos los derechos reservados.
         </div>
     </footer>
-    <!-- SEARCH SCRIPT -->
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/543515206105?text=Hola%2C%20quiero%20consultar%20sobre%20pedidos%20mayoristas%20de%20hierbas%2Ftisanas"
+       target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp"
+       class="fixed bottom-5 right-5 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition-colors flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true">
+            <path d="M16.001 2.667c-7.363 0-13.334 5.97-13.334 13.333 0 2.353.615 4.646 1.782 6.666L2.667 29.333l6.837-1.793a13.27 13.27 0 0 0 6.497 1.727h.006c7.362 0 13.333-5.97 13.333-13.333 0-3.56-1.387-6.91-3.905-9.428a13.24 13.24 0 0 0-9.434-3.906zm0 24.4h-.005a11.06 11.06 0 0 1-5.633-1.542l-.404-.24-4.057 1.064 1.084-3.957-.264-.407a11.05 11.05 0 0 1-1.693-5.866c0-6.114 4.976-11.09 11.096-11.09a11.03 11.03 0 0 1 7.848 3.252 11.02 11.02 0 0 1 3.247 7.847c-.001 6.114-4.977 11.09-11.09 11.09zm6.086-8.31c-.334-.167-1.973-.973-2.279-1.084-.306-.111-.529-.167-.751.167-.223.334-.863 1.083-1.058 1.306-.195.223-.39.25-.724.083-.334-.167-1.409-.52-2.685-1.657-.993-.886-1.664-1.98-1.86-2.313-.194-.334-.02-.514.147-.68.15-.15.334-.39.5-.585.167-.195.223-.334.334-.557.111-.223.056-.418-.028-.585-.084-.167-.75-1.808-1.028-2.475-.271-.65-.545-.562-.75-.573l-.639-.011c-.223 0-.585.083-.891.418-.306.334-1.167 1.14-1.167 2.78s1.195 3.226 1.362 3.449c.167.223 2.352 3.59 5.696 5.035.796.343 1.417.549 1.901.703.799.254 1.526.218 2.101.132.641-.096 1.973-.807 2.251-1.586.278-.78.278-1.447.195-1.586-.083-.14-.306-.223-.64-.39z"/>
+        </svg>
+    </a>
+</body>
+</html>
+
+    <!-- SEARCH + CATEGORY FILTER SCRIPT -->
     <script>
+        let activeCategory = 'all';
+
         function normalizeText(str) {
             return str
                 .toLowerCase()
@@ -301,21 +969,41 @@
 
         function filterProducts() {
             const query = normalizeText(document.getElementById('product-search').value.trim());
-            const cards = document.querySelectorAll('#catalog-grid > [data-name]');
+            const tisanaItems = document.querySelectorAll('#tisanas-list > [data-name]');
+            const hierbaItems = document.querySelectorAll('#hierbas-list > [data-name]');
             let visibleCount = 0;
 
-            cards.forEach(card => {
-                const name = normalizeText(card.getAttribute('data-name') || '');
-                const uses = normalizeText(card.getAttribute('data-uses') || '');
+            tisanaItems.forEach(item => {
+                const name = normalizeText(item.getAttribute('data-name') || '');
+                const uses = normalizeText(item.getAttribute('data-uses') || '');
                 const matches = query === '' || name.includes(query) || uses.includes(query);
+                item.style.display = matches ? '' : 'none';
+                if (matches) visibleCount++;
+            });
 
-                card.style.display = matches ? '' : 'none';
+            hierbaItems.forEach(item => {
+                const name = normalizeText(item.getAttribute('data-name') || '');
+                const uses = normalizeText(item.getAttribute('data-uses') || '');
+                const category = item.getAttribute('data-category') || '';
+                const matchesQuery = query === '' || name.includes(query) || uses.includes(query);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                const matches = matchesQuery && matchesCategory;
+                item.style.display = matches ? '' : 'none';
                 if (matches) visibleCount++;
             });
 
             document.getElementById('no-results-msg').style.display = visibleCount === 0 ? 'block' : 'none';
         }
-    </script>
 
-</body>
-</html>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chips = document.querySelectorAll('#category-filters .cat-chip');
+            chips.forEach(chip => {
+                chip.addEventListener('click', function () {
+                    chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+                    chip.setAttribute('aria-pressed', 'true');
+                    activeCategory = chip.getAttribute('data-cat');
+                    filterProducts();
+                });
+            });
+        });
+    </script>

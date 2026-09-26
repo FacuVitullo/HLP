@@ -1,0 +1,146 @@
+alcachofa|Alcachofa
+alhucema|Alhucema
+altamisa|Altamisa
+ambay|Ambay
+anis-estrellado|Anís Estrellado
+anis-en-grano|Anís en Grano
+amargon|Amargón
+aguaribay|Aguaribay
+azahar-flor|Azahar Flor
+anacahuita|Anacahuita
+apio-cimarron|Apio Cimarrón
+ajenjo|Ajenjo
+acoro|Ácoro
+arandano|Arándano
+baila-bien|Baila Bien
+barba-de-choclo|Barba de Choclo
+boldo|Boldo
+borraja|Borraja
+barba-de-piedra|Barba de Piedra
+bardana|Bardana
+brea-flor|Brea Flor
+benjui|Benjuí
+cabo-toril|Cabo Toril
+calaguala|Calaguala
+carqueja-ancha|Carqueja Ancha
+canchalagua|Canchalagua
+canela|Canela
+cardo-santo|Cardo Santo
+cascara-sagrada|Cáscara Sagrada
+cedron|Cedrón
+charrua|Charrúa
+cola-de-caballo|Cola de Caballo
+congorosa|Congorosa
+cola-de-quirquincho|Cola de Quirquincho
+cascara-de-granada|Cáscara de Granada
+cepa-de-caballo|Cepa de Caballo
+contrayerba|Contrayerba
+cuacia|Cuacia
+culandrillo|Culandrillo
+chachacoma|Chachacoma
+chanar-corteza|Chañar Corteza
+centella-asiatica|Centella Asiática
+chia-omega-3|Chía (Omega 3)
+doradilla-verde|Doradilla Verde
+enebro|Enebro
+estigma-de-maiz|Estigma de Maíz
+espina-colorada|Espina Colorada
+eneldo|Eneldo
+espinillo-flor|Espinillo Flor
+eucalipto|Eucalipto
+estoraque|Estoraque
+equinacea|Equinácea
+fucus|Fucus
+fumaria|Fumaria
+fresno|Fresno
+fofosa|Fofosa
+genciana|Genciana
+guaycuru|Guaycurú
+granada|Granada
+ginkgo-biloba|Ginkgo Biloba
+helecho-macho|Helecho Macho
+hamamelis|Hamamelis
+hinojo|Hinojo
+heliotropium|Heliotropium
+hipericon|Hipéricon
+hisopo|Hisopo
+incienso|Incienso
+incayuyo|Incayuyo
+jarilla|Jarilla
+laurel|Laurel
+lengua-de-vaca|Lengua de Vaca
+llanten|Llantén
+lapacho-corteza|Lapacho Corteza
+lino-semilla-o-harina|Lino (semilla o harina)
+malva|Malva
+manzanilla|Manzanilla
+mastuerzo-o-quimpe|Mastuerzo o Quimpe
+matico|Matico
+melisa|Melisa
+menta|Menta
+mil-hombres|Mil Hombres
+menta-piperita|Menta Piperita
+marcela|Marcela
+muna-muna|Muña Muña
+muerdago-o-liguilla|Muérdago o Liguilla
+morera|Morera
+mirra-en-grano|Mirra en Grano
+maca|Maca
+nencia|Nencia
+naranja-amarga|Naranja Amarga
+nogal|Nogal
+olivo|Olivo
+ortiga|Ortiga
+oregano|Orégano
+paico|Paico
+palo-azul|Palo Azul
+palo-pichi|Palo Pichi
+pasionaria|Pasionaria
+pezuna-de-vaca|Pezuña de Vaca
+peperina|Peperina
+poleo|Poleo
+pulmonaria|Pulmonaria
+palo-santo|Palo Santo
+pajaro-bobo|Pájaro Bobo
+quebracho|Quebracho
+quebra-arado|Quebra Arado
+quimpe|Quimpe
+romero|Romero
+rosa-petalos|Rosa Pétalos
+ruda|Ruda
+regaliz-oruzuz|Regaliz (Oruzuz)
+raiz-de-cana|Raíz de Caña
+retotuno|Retotuño
+rosa-mosqueta|Rosa Mosqueta
+salvia|Salvia
+sanguinaria|Sanguinaria
+sauco|Sauco
+sen-hojas-y-foliculos|Sen (hojas y folículos)
+siete-sangrias|Siete Sangrías
+sarandi|Sarandí
+te-de-burro|Té de Burro
+tilo|Tilo
+tomillo|Tomillo
+torongil|Torongil
+tramontana|Tramontana
+topasaire|Topasaire
+tusilago|Tusílago
+te-verde|Té Verde
+te-rojo|Té Rojo
+uva-ursi|Uva Ursi
+usillo|Usillo
+una-de-gato|Uña de Gato
+valeriana|Valeriana
+vira-vira|Vira Vira
+vinal|Vinal
+yerba-buena|Yerba Buena
+yerba-carnicera|Yerba Carnicera
+yerba-de-la-piedra|Yerba de la Piedra
+yerba-de-la-perdiz|Yerba de la Perdiz
+yerba-de-pollo|Yerba de Pollo
+yerba-del-pajaro-tomillo|Yerba del Pájaro (Tomillo)
+yerba-meona|Yerba Meona
+yerba-del-toro|Yerba del Toro
+yerba-del-venado|Yerba del Venado
+yerba-del-sapo-marrubio|Yerba del Sapo (Marrubio)
+zarzaparrilla|Zarzaparrilla

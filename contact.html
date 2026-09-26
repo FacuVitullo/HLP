@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Hierbas Medicinales La Paz</title>
+    <meta name="description" content="Contacto para consultas y pedidos mayoristas de hierbas medicinales: WhatsApp, email y formulario para dietéticas y comercios de Argentina.">
+    <meta property="og:title" content="Contacto | Hierbas Medicinales La Paz">
+    <meta property="og:description" content="Contacto para consultas y pedidos mayoristas de hierbas medicinales: WhatsApp, email y formulario para dietéticas y comercios de Argentina.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hierbasmedicinaleslapaz.netlify.app/contact">
+    <meta property="og:image" content="https://hierbasmedicinaleslapaz.netlify.app/images/hero-peperina.jpg">
+    <meta property="og:site_name" content="Hierbas Medicinales La Paz">
+    <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contacto | Hierbas Medicinales La Paz">
+    <meta name="twitter:description" content="Contacto para consultas y pedidos mayoristas de hierbas medicinales: WhatsApp, email y formulario para dietéticas y comercios de Argentina.">
+    <meta name="twitter:image" content="https://hierbasmedicinaleslapaz.netlify.app/images/hero-peperina.jpg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,25 +92,41 @@
                     <h3 class="font-serif text-xl text-pine">Atención directa</h3>
 
                     <div class="space-y-3 text-sm text-ink/75">
-                        <p><span class="text-ink/45">Ubicación —</span> Córdoba, Argentina</p>
+                        <p><span class="text-ink/45">Ubicación —</span> La Paz, Córdoba, Argentina</p>
                         <p><span class="text-ink/45">Tel / WhatsApp —</span> <a href="https://wa.me/543515206105" class="text-pine font-semibold hover:underline">+54 351 5206105</a></p>
                         <p><span class="text-ink/45">Email —</span> <a href="mailto:facundo3141592@gmail.com" class="text-pine font-semibold hover:underline">facundo3141592@gmail.com</a></p>
+                        <p class="flex items-center gap-2 pt-1">
+                            <span class="text-ochre" aria-hidden="true">★★★★★</span>
+                            <span class="text-ink/70 font-medium">4.7</span>
+                            <span class="text-ink/50">· 100 opiniones en Google</span>
+                        </p>
+                        <a href="https://www.google.com/maps/place/Hierbas+La+Paz/@-32.217831,-65.046214,17z/data=!4m8!3m7!1s0x95d2dee188ce850d:0x4816ba8034db501e!8m2!3d-32.217831!4d-65.046214!9m1!1b1!16s%2Fg%2F11byck96zz"
+                           target="_blank" rel="noopener noreferrer" class="inline-block text-sm text-pine border-b border-ochre hover:text-ochre-dark transition-colors">
+                            Ver reseñas en Google →
+                        </a>
                     </div>
                 </div>
 
-                <div class="border-l-4 border-sage bg-white/40 pl-6 py-5 pr-6">
-                    <h4 class="font-serif text-lg text-pine">¿Tiene un comercio?</h4>
-                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">
-                        Podemos enviarle un muestrario comercial sin cargo para que compruebe la calidad y aroma de nuestras hierbas.
-                    </p>
+                <!-- MAP -->
+                <div class="border border-line bg-white/40 p-2">
+                    <div class="overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps?q=-32.217831,-65.046214&hl=es&z=16&output=embed"
+                            width="100%"
+                            height="280"
+                            style="border:0; display:block;"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ubicación de Hierbas Medicinales La Paz en el mapa de La Paz, Córdoba">
+                        </iframe>
+                    </div>
                 </div>
             </div>
 
             <!-- Web3Forms Contact Form -->
             <div class="border border-line bg-white/40 p-7">
-                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                    <!-- Web3Forms Access Key -->
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <input type="hidden" name="access_key" value="e1759a94-6aba-410f-87aa-e328cb254986">
 
                     <!-- Honeypot Spam Protection -->
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
@@ -125,10 +154,91 @@
                     <button type="submit" class="w-full bg-pine hover:bg-pine-dark text-white font-semibold py-3 transition-colors">
                         Enviar formulario
                     </button>
+
+                    <div id="form-feedback" class="hidden text-sm p-3 border" role="status" aria-live="polite"></div>
                 </form>
             </div>
         </div>
+
+        <!-- FAQ Mayorista -->
+        <section class="mt-16 border-t border-line pt-10" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="font-serif text-3xl font-medium text-pine mb-6">Preguntas frecuentes mayoristas</h2>
+            <div class="space-y-3 max-w-3xl">
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Cómo se vende cada hierba?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Vendemos por kilo, o por paquetes (o pack de paquetes) según lo que usted necesite. Escríbanos con su selección y le confirmamos la presentación disponible.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Qué formas de pago aceptan?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Aceptamos transferencia bancaria y efectivo. Coordinamos la forma de pago junto con el envío al momento de confirmar el pedido.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿A qué zonas envían y en cuánto tiempo?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Enviamos a todo el país a través de transporte y correo. Los tiempos varían según destino; al cotizar su pedido le informamos el plazo estimado.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Cómo se cotiza el pedido? ¿Por qué no hay precios publicados?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Sus precios varían según temporada, clima y disponibilidad de cosecha. Por eso cotizamos cada pedido a medida: envíenos su selección por el formulario, por WhatsApp o desde Órdenes y le respondemos con el presupuesto actualizado.</p>
+                </details>
+                <details class="border border-line bg-white/40 p-4 group">
+                    <summary class="font-semibold text-pine cursor-pointer">¿Cómo hago un pedido?</summary>
+                    <p class="text-sm text-ink/70 mt-2 leading-relaxed">Puede armar su selección en la sección Órdenes, o directamente escribirnos por WhatsApp o por este formulario contándonos qué hierbas y cantidades necesita. Nosotros le enviamos la cotización a medida.</p>
+                </details>
+            </div>
+        </section>
     </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/543515206105?text=Hola%2C%20quiero%20consultar%20sobre%20pedidos%20mayoristas%20de%20hierbas%2Ftisanas"
+       target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp"
+       class="fixed bottom-5 right-5 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition-colors flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true">
+            <path d="M16.001 2.667c-7.363 0-13.334 5.97-13.334 13.333 0 2.353.615 4.646 1.782 6.666L2.667 29.333l6.837-1.793a13.27 13.27 0 0 0 6.497 1.727h.006c7.362 0 13.333-5.97 13.333-13.333 0-3.56-1.387-6.91-3.905-9.428a13.24 13.24 0 0 0-9.434-3.906zm0 24.4h-.005a11.06 11.06 0 0 1-5.633-1.542l-.404-.24-4.057 1.064 1.084-3.957-.264-.407a11.05 11.05 0 0 1-1.693-5.866c0-6.114 4.976-11.09 11.096-11.09a11.03 11.03 0 0 1 7.848 3.252 11.02 11.02 0 0 1 3.247 7.847c-.001 6.114-4.977 11.09-11.09 11.09zm6.086-8.31c-.334-.167-1.973-.973-2.279-1.084-.306-.111-.529-.167-.751.167-.223.334-.863 1.083-1.058 1.306-.195.223-.39.25-.724.083-.334-.167-1.409-.52-2.685-1.657-.993-.886-1.664-1.98-1.86-2.313-.194-.334-.02-.514.147-.68.15-.15.334-.39.5-.585.167-.195.223-.334.334-.557.111-.223.056-.418-.028-.585-.084-.167-.75-1.808-1.028-2.475-.271-.65-.545-.562-.75-.573l-.639-.011c-.223 0-.585.083-.891.418-.306.334-1.167 1.14-1.167 2.78s1.195 3.226 1.362 3.449c.167.223 2.352 3.59 5.696 5.035.796.343 1.417.549 1.901.703.799.254 1.526.218 2.101.132.641-.096 1.973-.807 2.251-1.586.278-.78.278-1.447.195-1.586-.083-.14-.306-.223-.64-.39z"/>
+        </svg>
+    </a>
+
+    <script>
+        (function () {
+            const form = document.getElementById('contact-form');
+            const feedback = document.getElementById('form-feedback');
+            if (!form || !window.fetch) return;
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: formData,
+                    });
+                    const result = await response.json();
+
+                    feedback.classList.remove('hidden');
+                    if (response.ok && result.success) {
+                        feedback.className = 'text-sm p-3 border border-pine bg-pine/10 text-pine';
+                        feedback.textContent = '¡Gracias! Te responderemos a la brevedad.';
+                        form.reset();
+                    } else {
+                        feedback.className = 'text-sm p-3 border border-ochre bg-ochre/10 text-ochre-dark';
+                        feedback.textContent = 'Hubo un problema al enviar el formulario. Por favor, intente nuevamente o escríbanos por WhatsApp.';
+                    }
+                } catch (err) {
+                    feedback.classList.remove('hidden');
+                    feedback.className = 'text-sm p-3 border border-ochre bg-ochre/10 text-ochre-dark';
+                    feedback.textContent = 'No se pudo enviar el formulario. Por favor, intente nuevamente o escríbanos por WhatsApp.';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            });
+        })();
+    </script>
 
     <!-- FOOTER -->
     <footer class="bg-pine-dark text-paper/70 py-14 mt-auto">
@@ -155,7 +265,7 @@
             </div>
         </div>
         <div class="mt-10 border-t border-paper/10 pt-6 text-center text-xs text-paper/40 max-w-7xl mx-auto px-4">
-            © 2026 Hierbas de Córdoba. Todos los derechos reservados.
+            © 2026 Hierbas Medicinales La Paz. Todos los derechos reservados.
         </div>
     </footer>
 
